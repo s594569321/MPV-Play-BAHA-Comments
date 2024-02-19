@@ -10,7 +10,7 @@
 2.將 BahaAssert 放在 MPV 資料夾底下的 scripts 資料夾內
 # 快捷功能
 
-按下 j 可以重新載入彈幕
+按下 j 可以開關彈幕
 
 # Reference
 MPV-Play-BiliBili-Comments: https://github.com/itKelis/MPV-Play-BiliBili-Comments?tab=readme-ov-file  
