@@ -12,6 +12,16 @@
 
 按下 j 可以開關彈幕
 
+# 注意事項
+
+如果遇到第一次使用時沒有出現彈幕，先讓 MPV 設定成以系統管理員身分執行再重開即可
+
+理論上只有開啟過一次權限後面就算關掉也不會有問題
+
+主要原因是透過 Lua script 觸發 python 寫入 ass 彈幕資料時有機會遇到權限不足
+
+我在開發程式時遇到過一次，開啟權限一次後就再也沒遇過了
+
 # Reference
 MPV-Play-BiliBili-Comments: https://github.com/itKelis/MPV-Play-BiliBili-Comments?tab=readme-ov-file  
 aniGamerDanmu: https://github.com/a20034294/aniGamerDanmu  
