@@ -12,22 +12,16 @@ function log(string,secs)
 end
 -- extract string between colons
 function extract_between_colons(input_string)
-    local start_index = 0
-    local end_index = 0
-    local count = 0
-    for i = 1, #input_string do
-        if input_string:sub(i, i) == ":" then
-            count = count + 1
-            if count == 2 then
-                start_index = i
-            elseif count == 3 then
-                end_index = i
-                break
-            end
-        end
-    end
-    if start_index > 0 and end_index > 0 then
-        return input_string:sub(start_index + 1, end_index - 1)
+    local start_index = input_string:find("%%3A")
+    if not start_index then return nil end
+    start_index = start_index + 3 -- move past %3A
+
+    local end_index = input_string:find("%%3A", start_index)
+    if not end_index then return nil end
+
+    local result = input_string:sub(start_index, end_index - 1)
+    if result:match("^%d+$") and #result <= 10 then
+        return result
     else
         return nil
     end
