@@ -1,5 +1,5 @@
 # MPV-Play-BAHA-Comments
-配合 Play-with-MPV 自動產生動畫瘋原生風格的彈幕
+配合 External Player 自動產生動畫瘋原生風格的彈幕
 # 運行效果
 ![螢幕擷取畫面 2024-02-19 211436](https://github.com/s594569321/MPV-Play-BAHA-Comments/assets/81683926/e053f6b1-71de-4a30-9b47-029402d74521)
 # 安裝
