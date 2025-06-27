@@ -29,7 +29,7 @@ end
 
 -- download/load function
 function assert()
-
+	--mp.set_property('ytdl-raw-options', 'cookies=' .. mp.command_native({'expand-path', '~~/cookies.txt'}))
 	--get sn number
 	local url = mp.get_property('path')
 	--get second ":" to third ":" from url
@@ -53,17 +53,53 @@ function assert()
 		
 		-- choose to use python or .exe
 		log('彈幕正在準備')
+		
+	
 		-- run python to get comments
-		local args = {sn, directory}  -- 請將這裡的參數更改為你需要傳入的參數
+		local CK_ = ""
+		local info = debug.getinfo(1, "S")
+		local script_path = info.source:sub(2)  -- 移除開頭的 @ 字元
+		print("完整路徑：", script_path)
+
+		-- 取出資料夾路徑（去掉檔名）
+		local dir = script_path:match("^(.*[\\/])")  -- 可處理 Windows 和 Linux 的路徑分隔符
+		local handle = io.popen('dir "' .. dir .. '" /b')  -- /b = 只列檔名，不加額外資訊
+		if handle then
+			
+    	for file in handle:lines() do
+			
+        	if file:match("%.txt$") and file:find("cookies") then
+           		log("Found cookie file: " .. file)
+				os.execute("sleep " .. tonumber(2))
+            	local f = io.open(file, "r")
+            	if f then
+                	for line in f:lines() do
+                    	if line:find("BAHARUNE\t") then
+                        	local value = line:match("BAHARUNE\t(.+)")
+                        	CK_ = "BAHARUNE=" .. (value or ""):gsub("\n", "") .. ";"
+							log('Cookie: ' .. CK_)
+							break
+                    	end
+                	end
+                	f:close()
+            	end
+        	end
+    	end
+    	handle:close()
+		end
+	
+	
+		local args = {sn, directory,CK_}  -- 請將這裡的參數更改為你需要傳入的參數
 
 		utils.subprocess({args={''..directory..'\\Danmu2Ass_baha.exe', unpack(args)}})
-
-		log('彈幕下載完成')
-		log(directory)
+		
+		--utils.subprocess({args={'python', py_path, unpack(args)}})
+		--log('彈幕下載完成')
+		--log(directory)
 		local subtitle_path = ''..directory..'\\123.ass'
 		mp.commandv('sub-add', subtitle_path)
 
-		log('彈幕匯入完成')
+		--log('彈幕匯入完成')
 	end
 end
 
@@ -80,4 +116,5 @@ function toggle_subtitles()
 end
 
 mp.add_key_binding('j',	"toggle_subtitles", toggle_subtitles)
+
 mp.register_event("start-file", assert)
