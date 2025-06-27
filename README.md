@@ -11,7 +11,7 @@
 
 3.(可選) 目前新版 API 需登入巴哈取得 Cookie 才能獲取完整彈幕，否則會有部分彈幕缺失，這裡提供一個解決方案
 
-3-1. 安裝 Get cookies.txt LOCALLY 瀏覽器差件
+3-1. 安裝 Get cookies.txt LOCALLY 瀏覽器插件
 
 插件連結: https://chromewebstore.google.com/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc
 
