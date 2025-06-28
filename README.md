@@ -9,17 +9,17 @@
 
 2.將 BahaAssert 放在 MPV 資料夾底下的 scripts 資料夾內
 
-3.(可選) 目前新版 API 需登入巴哈取得 Cookie 才能獲取完整彈幕，否則會有部分彈幕缺失，這裡提供一個解決方案
+3.(可選) 目前新版 API 需登入巴哈取得 Cookies 才能獲取完整彈幕，否則會有部分彈幕缺失，這裡提供一個解決方案
 
 3-1. 安裝 Get cookies.txt LOCALLY 瀏覽器插件
 
 插件連結: https://chromewebstore.google.com/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc
 
-3-2. 登入動畫瘋點擊插件並 Export Cookie.txt
+3-2. 登入動畫瘋點擊插件並 Export Cookies.txt
 
 ![image](https://github.com/user-attachments/assets/59dc2f77-9fb3-4bd0-b366-9e0ece929a9f)
 
-3-3. 將 Cookie.txt 放入 BahaAssert 資料夾中即可
+3-3. 將 Cookies.txt 放入 BahaAssert 資料夾中即可
 
 # 快捷功能
 
